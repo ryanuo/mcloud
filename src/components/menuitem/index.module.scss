@@ -1,0 +1,23 @@
+.MenuItem{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    color: var(--mc-menu-text-color);
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 5px;
+    &:hover{
+        transition: all .4s linear;
+        background-color: #f6f6f7;
+        font-weight: 600;
+        border-radius: 10px;
+        color: #000;
+    }
+}
+.Icon{
+    width: 22px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
