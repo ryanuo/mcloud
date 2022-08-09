@@ -3,7 +3,7 @@
  * @Date: 2022-08-08 12:31:52
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-08-08 15:09:39
+ * @LastEditTime: 2022-08-08 22:03:00
  * @FilePath: \cloudm\src\utils\menu.js
  */
 // 目录结构
@@ -20,10 +20,10 @@ export const MenuList = [
         path: "",
         label: "发现音乐",
         children: [
-            { idx: '0-1', parh: 'home', label: "首页", icon: <SvgHome /> },
-            { idx: '0-2', parh: 'singer', label: "歌手", icon: <SvgSinger /> },
-            { idx: '0-3', parh: 'Album', label: "专辑", icon: <SvgAlbum /> },
-            { idx: '0-4', parh: 'ranking', label: "排行", icon: <SvgRank /> },
+            { idx: '0-1', isactived:false, path: 'home', label: "首页", icon: <SvgHome /> },
+            { idx: '0-2', isactived:false, path: 'singer', label: "歌手", icon: <SvgSinger /> },
+            { idx: '0-3', isactived:false, path: 'Album', label: "专辑", icon: <SvgAlbum /> },
+            { idx: '0-4', isactived:false, path: 'ranking', label: "排行", icon: <SvgRank /> },
         ]
     },
     {
@@ -31,7 +31,7 @@ export const MenuList = [
         path: "mine",
         label: "我的音乐",
         children: [
-            { idx: '1-1', parh: 'like', label: "我喜欢的音乐", icon: <SvgLike /> },
+            { idx: '1-1', isactived:false, path: 'like', label: "我喜欢的音乐", icon: <SvgLike /> },
         ]
     }
 ]

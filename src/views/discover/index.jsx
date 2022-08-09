@@ -16,12 +16,9 @@ export default memo(function Discover() {
     const ele = useRoutes(routes)
     console.log(ele);
     return (
-        <>
-            <div className={classes.markWrap}></div>
-            <div className={classes.Home}>
-                <Asidemc />
-                < Outlet />
-            </div>
-        </>
+        <div className={classes.Home}>
+            <Asidemc />
+            < Outlet />
+        </div>
     )
 })
