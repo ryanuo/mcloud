@@ -3,12 +3,15 @@
  * @Date: 2022-08-08 13:47:17
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-08-09 12:20:19
+ * @LastEditTime: 2022-08-09 22:19:19
  * @FilePath: \cloudm\src\components\menuitem\MenuItem.jsx
  */
 import React from 'react'
+import { useContext } from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import MenuContext from '../../store/menu-context'
+
 import classes from './index.module.scss'
 // export default class MenuItem extends React.Component {
 //     constructor(props) {
@@ -40,8 +43,10 @@ import classes from './index.module.scss'
 //     }
 // }
 export default function MenuItem(props) {
+    const ctx = useContext(MenuContext)
+    console.log()
     return (
-        <div data-path={props.path} className={props.isactived ? classes.MenuItem + ' ' + classes.isactived : classes.MenuItem}>
+        <div onClick={() => ctx.clickPend(props.path)} data-path={props.path} className={props.isactived ? classes.MenuItem + ' ' + classes.isactived : classes.MenuItem}>
             < span className={classes.Icon} > {props.icon}</span >
             <span>{props.label}</span>
         </div >

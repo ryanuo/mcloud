@@ -3,7 +3,7 @@
  * @Date: 2022-08-08 15:53:24
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-08-09 12:39:42
+ * @LastEditTime: 2022-08-09 22:32:05
  * @FilePath: \cloudm\src\components\aside\index.jsx
  */
 import React, { useContext, useEffect, useState } from 'react'
@@ -20,7 +20,8 @@ export const Asidemc = (props) => {
     const { pathname } = location;
     // 菜单列表
     const [mList, setNewList] = useState({
-        data: []
+        data: Menulist,
+        clickPend: function () { }
     })
     ctx.data = Menulist
     // // 点击事件
@@ -35,24 +36,25 @@ export const Asidemc = (props) => {
     // }
     // 事件委托事件
     const clickPend = function (e) {
-        const { path } = e.target.dataset
+        // const { path } = e.target.dataset
         for (let i of Menulist) {
             for (let n of i.children) {
-                n.isactived = n.path === path
+                n.isactived = n.path === e
             }
         }
         ctx.data = Menulist
-        console.log(Menulist)
+        // setNewList(listtemp)
+        // console.log(Menulist)
     }
-    // 只在页面加载时执行一次
-    useEffect(() => {
-        ctx.data = Menulist
-    }, [ctx])
+    // // 只在页面加载时执行一次
+    // useEffect(() => {
+    //     ctx.data = Menulist
+    // }, [ctx])
     return (
-        <MenuContext.Provider value={mList}>
-            <div className={classes.asideContainer} onClick={clickPend}>
+        <MenuContext.Provider value={{ ...mList, clickPend }}>
+            <div className={classes.asideContainer}>
                 <Header />
-                {ctx.data.map(v => <Meun children={v.children} key={v.idx} label={v.label} />)}
+                {mList.data.map(v => <Meun children={v.children} key={v.idx} label={v.label} />)}
             </div>
         </MenuContext.Provider>
     )

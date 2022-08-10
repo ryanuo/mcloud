@@ -3,7 +3,7 @@
  * @Date: 2022-08-08 13:20:18
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-08-09 12:14:41
+ * @LastEditTime: 2022-08-09 22:33:29
  * @FilePath: \cloudm\src\components\menu\index.jsx
  */
 import React, { useEffect, useState } from 'react'
@@ -29,9 +29,9 @@ import classes from './index.module.scss'
 //     }
 // }
 export default function Meun(props) {
-    const [itemList, setNewItemList] = useState([])
+    const [itemList, setNewItemList] = useState(props.children)
     useEffect(()=>{
-        setNewItemList(props.children);
+        // setNewItemList(props.children);
         console.log(1)
     },[props])
     return (
