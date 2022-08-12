@@ -3,7 +3,7 @@
  * @Date: 2022-08-08 12:31:52
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-08-08 22:03:00
+ * @LastEditTime: 2022-08-10 22:45:39
  * @FilePath: \cloudm\src\utils\menu.js
  */
 // 目录结构
@@ -22,7 +22,7 @@ export const MenuList = [
         children: [
             { idx: '0-1', isactived:false, path: 'home', label: "首页", icon: <SvgHome /> },
             { idx: '0-2', isactived:false, path: 'singer', label: "歌手", icon: <SvgSinger /> },
-            { idx: '0-3', isactived:false, path: 'Album', label: "专辑", icon: <SvgAlbum /> },
+            { idx: '0-3', isactived:false, path: 'album', label: "专辑", icon: <SvgAlbum /> },
             { idx: '0-4', isactived:false, path: 'ranking', label: "排行", icon: <SvgRank /> },
         ]
     },

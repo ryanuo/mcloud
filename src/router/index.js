@@ -3,7 +3,7 @@
  * @Date: 2022-08-07 21:49:42
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-08-08 12:44:21
+ * @LastEditTime: 2022-08-10 23:03:25
  * @FilePath: \cloudm\src\router\index.js
  */
 import React, { lazy, Suspense } from "react";
@@ -14,16 +14,16 @@ const Discover = lazy(() => import("@/views/discover"));
 const Home = lazy(() =>
     import("@/views/discover/home")
 );
-// const Ranking =  lazy((_) => import("@/views/Discover/c-views/Ranking"));
-// const Songs =  lazy((_) => import("@/views/Discover/c-views/Songs"));
+const Ranking = lazy(() => import("@/views/discover/ranking"));
+const Album = lazy(() => import("@/views/discover/album"));
+const Songs = lazy(() => import("@/views/discover/sing"));
+const Like = lazy(() => import("@/views/discover/like"));
 // const Djradio =  lazy((_) => import("@/views/Discover/c-views/Djradio"));
 // const Artist =  lazy((_) => import("@/views/Discover/c-views/Artist"));
-// const Album =  lazy((_) => import("@/views/Discover/c-views/Album"));
 
 // const Friends =  lazy((_) => import("@/views/Friends"));
 // const Mine =  lazy((_) => import("@/views/Mine"));
 const NotFound = lazy(() => import("@/components/NotFound"));
-// const Song = React.lazy((_) => import("@/views/Player"));
 
 const routes = [
     {
@@ -40,68 +40,28 @@ const routes = [
                 element: <Suspense><Home /></Suspense>,
             },
             {
+                path: 'ranking',
+                element: <Suspense><Ranking /></Suspense>,
+            },
+            {
+                path: 'album',
+                element: <Suspense><Album /></Suspense>,
+            },
+            {
+                path: 'singer',
+                element: <Suspense><Songs /></Suspense>,
+            },
+            {
+                path: 'like',
+                element: <Suspense><Like /></Suspense>,
+            },
+            {
                 path: "*",
                 // index: true,
                 element: <Suspense><NotFound /></Suspense>,
             },
         ]
     },
-    // {
-    //     path: "/discover",
-    //     // component: Discover,
-    //     routes: [
-    //         {
-    //             path: "/discover",
-    //             exact: true,
-    //             render: () => <Navigate to="/discover/home" />,
-    //         },
-    //         {
-    //             path: "/discover/home",
-    //             element: Home,
-    //         },
-    //         //   {
-    //         //     path: "/discover/ranking",
-    //         //     component: Ranking,
-    //         //   },
-    //         //   {
-    //         //     path: "/discover/songs",
-    //         //     component: Songs,
-    //         //   },
-    //         //   {
-    //         //     path: "/discover/djradio",
-    //         //     component: Djradio,
-    //         //   },
-    //         //   {
-    //         //     path: "/discover/artist",
-    //         //     component: Artist,
-    //         //   },
-    //         //   {
-    //         //     path: "/discover/album",
-    //         //     component: Album,
-    //         //   },
-    //         //   {
-    //         //     path: "/discover/song",
-    //         //     component: Song,
-    //         //   },
-    //         {
-    //             path: "*",
-    //             exact: true,
-    //             element: <NotFound />,
-    //         },
-    //     ],
-    // },
-    // //   {
-    // //     path: "/friends",
-    // //     component: Friends,
-    // //   },
-    // //   {
-    // //     path: "/mine",
-    // //     component: Mine,
-    // //   },
-    // //   {
-    // //     path: "/song",
-    // //     component: Song,
-    // //   },
     {
         path: "*",
         exact: true,
