@@ -3,7 +3,7 @@
  * @Date: 2022-08-07 18:13:44
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-08-08 16:14:33
+ * @LastEditTime: 2022-08-12 21:19:48
  * @FilePath: \cloudm\src\App.js
  */
 // / 导入的第三方库
@@ -13,9 +13,9 @@ import routes from "./router";
 export default memo(function App() {
   const element = useRoutes(routes)
   return (
-    <div>
+    <>
       {element}
       <Outlet />
-    </div>
+    </>
   );
 });

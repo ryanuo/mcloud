@@ -3,13 +3,13 @@
  * @Date: 2022-08-07 18:33:07
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-08-07 19:05:19
+ * @LastEditTime: 2022-08-12 20:15:15
  * @FilePath: \cloudm\craco.config.js
  */
 const path = require("path");
 //dir为当前文件（craco-根路径）路径，__dirname为下方resolve（）传递过来的路径，然后拼接
 const resolve = (dir) => path.resolve(__dirname, dir);
-
+const CracoLessPlugin = require('craco-less');
 module.exports = {
     babel: {
         plugins: [
@@ -18,11 +18,24 @@ module.exports = {
                 {
                     libraryName: "antd",
                     libraryDirectory: "es",
-                    style: "css",
+                    style: "less",
                 },
-            ],
+            ]
         ],
     },
+    plugins: [
+        {
+            plugin: CracoLessPlugin,
+            options: {
+                lessLoaderOptions: {
+                    lessOptions: {
+                        modifyVars: { '@primary-color': '#ff414b' },
+                        javascriptEnabled: true,
+                    },
+                },
+            },
+        },
+    ],
     webpack: {
         alias: {
             "@": resolve("src"),

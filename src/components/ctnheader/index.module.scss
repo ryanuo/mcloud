@@ -1,5 +1,8 @@
 .CtnHeader {
     margin-bottom: 20px;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .LfWrap {
@@ -25,4 +28,9 @@ button.noPage{
 }
 .Search {}
 
-.OtherEle {}
+.OtherEle {
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

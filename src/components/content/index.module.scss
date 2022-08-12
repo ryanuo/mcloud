@@ -1,3 +1,16 @@
-.Content{
+.Content {
     padding: 0 15px;
+    width: 100%;
+}
+
+.MidContent {
+    display: flex;
+}
+
+.Lcont {
+    flex: 3;
+}
+
+.Rcont {
+    flex: 1;
 }
