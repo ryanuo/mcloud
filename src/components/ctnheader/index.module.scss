@@ -1,0 +1,28 @@
+.CtnHeader {
+    margin-bottom: 20px;
+}
+
+.LfWrap {
+    display: flex;
+
+    button {
+        cursor: pointer;
+        outline: none;
+        padding: 0;
+        margin: 0;
+        margin-right: 14px;
+        padding: 7px;
+        color: #333;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: var(--mc-white);
+    }
+}
+
+button.noPage{
+    color: #aeaeae;
+}
+.Search {}
+
+.OtherEle {}

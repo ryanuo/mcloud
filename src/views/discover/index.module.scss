@@ -1,8 +1,12 @@
-.Discover{
+.Discover {
     padding: 20px;
     width: 70vw;
     height: 80vh;
     background-color: var(--mc-home-bg);
     border-radius: 10px;
     display: flex;
+    border: 1.65px solid var(--mc-white);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 26px var(--mc-box-shadow);
+    box-sizing: border-box;
 }
