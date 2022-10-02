@@ -3,7 +3,7 @@
  * @Date: 2022-08-07 21:49:42
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-02 03:32:27
+ * @LastEditTime: 2022-10-02 21:38:12
  * @FilePath: \cloudm\src\router\index.tsx
  */
 import React, { lazy, Suspense } from 'react'

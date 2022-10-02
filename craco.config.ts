@@ -3,9 +3,10 @@
  * @Date: 2022-08-07 18:33:07
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-02 01:26:26
+ * @LastEditTime: 2022-10-02 21:25:45
  * @FilePath: \cloudm\craco.config.ts
  */
+
 const path = require("path");
 //dir为当前文件（craco-根路径）路径，__dirname为下方resolve（）传递过来的路径，然后拼接
 const resolve = (dir) => path.resolve(__dirname, dir);
