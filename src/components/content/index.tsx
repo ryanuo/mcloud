@@ -3,7 +3,7 @@
  * @Date: 2022-08-10 23:04:32
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-02 11:14:09
+ * @LastEditTime: 2022-10-02 17:26:54
  * @FilePath: \cloudm\src\components\content\index.Tsx
  */
 import React, { useContext, useState } from 'react'
@@ -20,11 +20,11 @@ const Content = (props: { children: JSX.Element }) => {
 
   const ctx = useContext(GlobalContent)
 
-  const [isshowLogin, setisshowLogin] = useState<boolean>(ctx.isShowLoginState)
+  const [isShowLogin, setIsShowLogin] = useState(ctx.isShowLoginState)
 
   const setShowState = function(val: boolean) {
     ctx.isShowLoginState = val
-    setisshowLogin(val)
+    setIsShowLogin(val)
   }
 
   return (
@@ -41,7 +41,7 @@ const Content = (props: { children: JSX.Element }) => {
             </div>
           </div>
         </div>
-        {isshowLogin ? <Login /> : null}
+        {isShowLogin ? <Login /> : null}
       </GlobalContent.Provider>
     </>
   )
