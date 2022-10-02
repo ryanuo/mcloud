@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "target": "es5",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "removeComments": true,
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "jsx": "react",
+    "outDir": "dist",
+    "lib": [
+      "dom",
+      "es5",
+      "ESNext",
+      "scripthost",
+      "es6"
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "downlevelIteration": true,
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+  ]
+}
