@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcloudm=self.webpackChunkcloudm||[]).push([[640],{9640:function(u,e,c){c.r(e);c(2791);var n=c(184);e.default=function(){return(0,n.jsx)("div",{children:"Like"})}}}]);
+//# sourceMappingURL=640.9577e847.chunk.js.map

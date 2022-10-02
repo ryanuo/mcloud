@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcloudm=self.webpackChunkcloudm||[]).push([[927],{8927:function(n,u,e){e.r(u),e.d(u,{default:function(){return r}});e(2791);var c=e(184);function r(){return(0,c.jsx)("div",{children:"Singer"})}}}]);
+//# sourceMappingURL=927.65bfe62a.chunk.js.map
