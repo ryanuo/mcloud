@@ -1,0 +1,20 @@
+.authorPic {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.356);
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    border-radius: 10px;
+  }
+}
+
+.OtherHdSvg {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+}

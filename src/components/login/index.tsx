@@ -3,7 +3,7 @@
  * @Date: 2022-08-12 21:42:11
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-02 17:06:53
+ * @LastEditTime: 2022-10-03 14:07:20
  * @FilePath: \cloudm\src\components\login\index.tsx
  */
 import React, { useContext } from 'react'
@@ -17,14 +17,14 @@ import classes from './index.module.scss'
 const Login = () => {
   const ctx = useContext(globalContent)
 
-  const PreFoam = function(e) {
+  const PreForm = function(e) {
     e.stopPropagation()
     e.nativeEvent.stopImmediatePropagation()
   }
 
   return (
-    <RootMark onClick={() => ctx.setShowState(false)} className={classes.rootmarklogin}>
-      <div className={classes.Login} onClick={PreFoam}>
+    <RootMark onClick={() => ctx.setIsShowLogin(false)} className={classes.rootmarklogin}>
+      <div className={classes.login} onClick={PreForm}>
         <FormWrap />
       </div>
     </RootMark>

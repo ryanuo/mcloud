@@ -3,18 +3,16 @@
  * @Date: 2022-08-07 18:29:25
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-02 11:53:29
+ * @LastEditTime: 2022-10-03 11:30:04
  * @FilePath: \cloudm\src\service\config.ts
  */
 // 配置
 import { notification } from 'antd'
 
-const devBaseURL = '/api'
-const proBaseURL = 'https://music.mr90.cf/'
-export const BASE_URL =
-  process.env.NODE_ENV === 'development' ? devBaseURL : proBaseURL
+import { differentEnvUrl } from '@/constants'
 
-export const TIMEOUT = 5000
+export const BASE_URL =
+  process.env.NODE_ENV === 'development' ? differentEnvUrl.dev : differentEnvUrl.pro
 
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
