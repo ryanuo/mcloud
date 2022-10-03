@@ -3,9 +3,10 @@
  * @Date: 2022-08-07 21:49:42
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-02 21:38:12
+ * @LastEditTime: 2022-10-03 14:48:47
  * @FilePath: \cloudm\src\router\index.tsx
  */
+import { Spin } from 'antd'
 import React, { lazy, Suspense } from 'react'
 import { Navigate } from 'react-router-dom'
 
@@ -30,27 +31,27 @@ const routes = [
       },
       {
         path: 'home',
-        element: <Suspense fallback={<div>Loading</div>}><Home /></Suspense>
+        element: <Suspense fallback={<Spin tip="Loading..." />}><Home /></Suspense>
       },
       {
         path: 'ranking',
-        element: <Suspense fallback={<div>Loading</div>}><Ranking /></Suspense>
+        element: <Suspense fallback={<Spin tip="Loading..." />}><Ranking /></Suspense>
       },
       {
         path: 'album',
-        element: <Suspense fallback={<div>Loading</div>}><Album /></Suspense>
+        element: <Suspense fallback={<Spin tip="Loading..." />}><Album /></Suspense>
       },
       {
         path: 'singer',
-        element: <Suspense fallback={<div>Loading</div>}><Songs /></Suspense>
+        element: <Suspense fallback={<Spin tip="Loading..." />}><Songs /></Suspense>
       },
       {
         path: 'like',
-        element: <Suspense fallback={<div>Loading</div>}><Like /></Suspense>
+        element: <Suspense fallback={<Spin tip="Loading..." />}><Like /></Suspense>
       },
       {
         path: '*',
-        element: <Suspense fallback={<div>Loading</div>}><NotFound /></Suspense>
+        element: <Suspense fallback={<Spin tip="Loading..." />}><NotFound /></Suspense>
       }
     ]
   },

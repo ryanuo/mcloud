@@ -1,12 +1,21 @@
-.Login {
-    width: 30vw;
-    max-height: 50vh;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 20px;
+.login {
+  width: 30vw;
+  max-height: 50vh;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 20px;
 }
-.rootmarklogin{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.rootmarklogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switchStyl {
+  margin-bottom: 10px;
+}
+
+.captcha {
+  display: flex;
 }
