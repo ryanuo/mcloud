@@ -3,7 +3,7 @@
  * @Date: 2022-08-07 18:29:57
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-03 11:30:13
+ * @LastEditTime: 2022-10-04 12:59:32
  * @FilePath: \cloudm\src\service\http.ts
  */
 import axios from 'axios'
@@ -46,7 +46,7 @@ instance.interceptors.request.use(
 
 // 响应拦截
 instance.interceptors.response.use(
-  (res) => {
+  (res: any) => {
     return res.data
   },
   (err) => {

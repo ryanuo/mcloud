@@ -4,13 +4,14 @@
  * @Date: 2022-08-12 20:50:11
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-03 15:10:47
- * @FilePath: \cloudm\src\components\content\ctnheader\other\index.Tsx
+ * @LastEditTime: 2022-10-04 14:21:24
+ * @FilePath: \cloudm\src\components\content\ctnheader\other\index.tsx
  */
 
 import { ExclamationCircleOutlined } from '@ant-design/icons'
 import { Dropdown, Menu, Modal } from 'antd'
 import React, { memo, useContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import SvgNologin from '@/assets/svg/SvgNologin'
 import globalContent from '@/store/global-content'
@@ -33,13 +34,13 @@ const layout = (callback) => {
   })
 }
 
-const menu = function(fn) {
+const menu = function(fn, navigate) {
   return <Menu
     items={[
       {
         key: '1',
         label: (
-          <span>我的主页</span>
+          <span onClick={() => navigate('/main')}>我的主页</span>
         )
       },
       {
@@ -54,7 +55,7 @@ const menu = function(fn) {
 
 const OtherHd = () => {
   const ctx = useContext(globalContent)
-
+  const navigate = useNavigate()
   const [authorPic, setAuthorPic] = useState<string>('')
 
   useEffect(() => {
@@ -70,7 +71,7 @@ const OtherHd = () => {
     <div className={classes.OtherHd}>
       {
         ctx.isLogined
-          ? <Dropdown overlay={menu(() => ctx.setIsLogined(false))} placement="bottomLeft" arrow>
+          ? <Dropdown overlay={menu(() => ctx.setIsLogined(false), navigate)} placement="bottomLeft" arrow>
             <div className={classes.authorPic}>
               <img src={authorPic} alt="" />
             </div>

@@ -3,7 +3,7 @@
  * @Date: 2022-10-02 21:57:43
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-03 12:23:24
+ * @LastEditTime: 2022-10-04 13:34:59
  * @FilePath: \cloudm\src\components\login\VerificationCode.tsx
  */
 
@@ -34,7 +34,7 @@ const VerificationCode = (props: formType) => {
     return await captchaAccess({ phone })
   }
 
-  const sendCode = async () => {
+  const sendCode = () => {
     // 要发送验证码
     getCaptha()
     cutCount()

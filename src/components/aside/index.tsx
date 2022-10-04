@@ -3,7 +3,7 @@
  * @Date: 2022-08-08 15:53:24
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-02 11:24:36
+ * @LastEditTime: 2022-10-04 14:22:54
  * @FilePath: \cloudm\src\components\aside\index.tsx
  */
 import React, { useEffect, useState } from 'react'
@@ -26,7 +26,6 @@ export function Asidemc() {
   const navigate = useNavigate()
   // 菜单列表
 
-  // 事件委托事件
   const clickPend = function(e: string): void {
     const newData: menuListType[] = [...MenuList]
 
