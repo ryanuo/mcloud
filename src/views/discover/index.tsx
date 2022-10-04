@@ -3,10 +3,10 @@
  * @Date: 2022-08-08 11:21:12
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-03 15:20:06
+ * @LastEditTime: 2022-10-04 10:14:45
  * @FilePath: \cloudm\src\views\discover\index.tsx
  */
-import React, { memo, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import { Outlet, useRoutes } from 'react-router-dom'
 
 import { Asidemc } from '@/components/aside'
@@ -23,6 +23,12 @@ export default memo(function Discover() {
 
   const ele = useRoutes(routes)
   console.log(ele)
+
+  useEffect(() => {
+    if (isLogined) {
+      setIsShowLogin(false)
+    }
+  }, [isLogined])
 
   return (
     <GlobalContent.Provider value={{ isShowLogin, isLogined, setIsShowLogin, setIsLogined }}>

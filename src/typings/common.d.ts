@@ -3,7 +3,7 @@
  * @Date: 2022-10-02 10:15:46
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-02 22:13:38
+ * @LastEditTime: 2022-10-04 14:16:08
  * @FilePath: \cloudm\src\typings\common.d.ts
  */
 
@@ -15,7 +15,8 @@ export interface menuChildrenType {
   isactived?: boolean
   path?: string
   label?: string | JSX.Element
-  icon?: JSX.Element
+  icon?: JSX.Element | string
+  show?: boolean
 }
 
 export interface menuListType {
@@ -33,4 +34,19 @@ export interface formType {
   password?: string
   md5_password?: string
   captcha?: string
+}
+
+export interface searchParamsType {
+  keywords?: string
+  type?: number
+  limit?: number
+}
+
+export interface searchResponse {
+  code: number
+  result: {
+    hasMore: boolean
+    songCount: number
+    songs: []
+  }
 }

@@ -3,11 +3,13 @@
  * @Date: 2022-08-07 18:30:29
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-03 10:51:47
+ * @LastEditTime: 2022-10-04 13:04:54
  * @FilePath: \cloudm\src\service\api.ts
  */
+import { AxiosResponse } from 'axios'
+
 import { apiUrl } from '@/constants'
-import { formType } from '@/typings/'
+import { formType, searchParamsType, searchResponse } from '@/typings/'
 
 import http from './http'
 
@@ -29,11 +31,11 @@ export const captchaAccess = async function(params: formType) {
   })
 }
 
-// 登录接口二： 二维码登录
-
-// 获取每日推荐歌单
-export const todaySongSheet = async function() {
-  return await http({
-    url: apiUrl.RECOMMEND_URL_TODAY
+// 搜索
+export const searchAccess = function(params: searchParamsType): Promise<AxiosResponse<searchResponse, any>> | searchResponse {
+  return http({
+    url: apiUrl.Search_URL,
+    method: 'get',
+    params
   })
 }

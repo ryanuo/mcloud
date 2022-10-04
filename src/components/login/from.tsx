@@ -3,7 +3,7 @@
  * @Date: 2022-08-12 22:03:12
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-03 14:10:52
+ * @LastEditTime: 2022-10-04 10:35:33
  * @FilePath: \cloudm\src\components\login\from.tsx
  */
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
@@ -11,6 +11,7 @@ import { Button, Form, Input, Switch } from 'antd'
 import md5 from 'js-md5'
 import React, { useContext, useState } from 'react'
 
+import { StylAnimateEnum } from '@/constants'
 import { LoginAccess } from '@/service/api'
 import globalContent from '@/store/global-content'
 import { formType } from '@/typings/'
@@ -34,9 +35,10 @@ const saveLoginMessage = function(res, callback) {
   }
 }
 
-const FormWrap = () => {
+const FormWrap = (props: { onAnimate: (e: StylAnimateEnum) => void }) => {
   const ctx = useContext(globalContent)
-  console.log(ctx)
+
+  const { onAnimate } = props
 
   const [form] = Form.useForm<formType>()
 
@@ -46,14 +48,17 @@ const FormWrap = () => {
 
   const nameValue = Form.useWatch('phone', form)
 
-  const onFinish = async (values: formType) => {
+  const onFinish = (values: formType) => {
     const { phone, password, captcha } = values
 
     const result = (res) => {
       saveLoginMessage(res, () => {
         setLoginLoading(false)
-        ctx.setIsLogined(true)
-        ctx.setIsShowLogin(false)
+        onAnimate(StylAnimateEnum.fadeOutDown)
+
+        setTimeout(() => {
+          ctx.setIsLogined(true)
+        }, 800)
       })
     }
 

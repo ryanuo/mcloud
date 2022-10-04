@@ -3,7 +3,7 @@
  * @Date: 2022-08-08 13:20:18
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-02 11:03:53
+ * @LastEditTime: 2022-10-04 13:55:16
  * @FilePath: \cloudm\src\components\menu\index.tsx
  */
 import React, { useEffect, useState } from 'react'
@@ -29,7 +29,7 @@ export default function Meun(props: MenuProps) {
   return (
     <div className={classes.Meun}>
       <div className={classes.Label}>{label}</div>
-      {itemList.map(v => <MenuItem icon={v.icon} isactived={v.isactived} key={v.idx} label={v.label} path={v.path}></MenuItem>)}
+      {itemList.map(v => <MenuItem icon={v.icon} isactived={v.isactived} key={v.idx} label={v.label} path={v.path} show={v.show}></MenuItem>)}
     </div >
   )
 }
