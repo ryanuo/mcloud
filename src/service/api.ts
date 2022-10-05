@@ -3,13 +3,13 @@
  * @Date: 2022-08-07 18:30:29
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-04 13:04:54
+ * @LastEditTime: 2022-10-05 12:45:24
  * @FilePath: \cloudm\src\service\api.ts
  */
 import { AxiosResponse } from 'axios'
 
 import { apiUrl } from '@/constants'
-import { formType, searchParamsType, searchResponse } from '@/typings/'
+import { formType, searchParamsType, searchResponse, userInfoType } from '@/typings/'
 
 import http from './http'
 
@@ -35,6 +35,15 @@ export const captchaAccess = async function(params: formType) {
 export const searchAccess = function(params: searchParamsType): Promise<AxiosResponse<searchResponse, any>> | searchResponse {
   return http({
     url: apiUrl.Search_URL,
+    method: 'get',
+    params
+  })
+}
+
+// 用户详情
+export const UserInfoAccess = function(params: { uid: number }): Promise<AxiosResponse<userInfoType, any>> {
+  return http({
+    url: apiUrl.USERINFO_URL,
     method: 'get',
     params
   })

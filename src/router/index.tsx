@@ -3,14 +3,14 @@
  * @Date: 2022-08-07 21:49:42
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-04 14:17:58
+ * @LastEditTime: 2022-10-05 11:42:35
  * @FilePath: \cloudm\src\router\index.tsx
  */
 import { Spin } from 'antd'
 import React, { lazy, Suspense } from 'react'
 import { Navigate } from 'react-router-dom'
 
-import MainStage from '@/views/main'
+import MainStage from '@/views/mine'
 import SearchShow from '@/views/search/SearchShow'
 
 const Discover = lazy(async () => await import('@/views/discover'))
@@ -57,7 +57,7 @@ const routes = [
         element: <Suspense fallback={<Spin tip="Loading..." />}><Like /></Suspense>
       },
       {
-        path: 'main',
+        path: 'mine',
         element: <Suspense fallback={<Spin tip="Loading..." />}><MainStage /></Suspense>
       },
       {
