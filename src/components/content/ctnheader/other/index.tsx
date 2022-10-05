@@ -4,7 +4,7 @@
  * @Date: 2022-08-12 20:50:11
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-04 14:21:24
+ * @LastEditTime: 2022-10-05 11:43:00
  * @FilePath: \cloudm\src\components\content\ctnheader\other\index.tsx
  */
 
@@ -40,7 +40,7 @@ const menu = function(fn, navigate) {
       {
         key: '1',
         label: (
-          <span onClick={() => navigate('/main')}>我的主页</span>
+          <span onClick={() => navigate('/mine')}>我的主页</span>
         )
       },
       {

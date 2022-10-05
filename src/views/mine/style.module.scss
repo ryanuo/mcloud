@@ -1,0 +1,51 @@
+@mixin imgCom($max) {
+  width: $max;
+  height: $max;
+
+  img {
+    width: 100%;
+  }
+}
+
+
+
+
+.imgWrap {
+  @include imgCom(100px);
+}
+
+.editWrap {
+  padding: 20px 5px;
+  display: flex;
+  justify-content: space-between;
+
+  .editImg {
+    flex: 1;
+    padding-top: 20px;
+
+    img {
+      width: 100%;
+      border-radius: 8px;
+    }
+  }
+
+  .formWrap {
+    padding: 20px 10px;
+    padding-right: 30px;
+    flex: 3;
+  }
+}
+
+.btn {
+  margin-right: 20px;
+}
+
+.address {
+  display: flex;
+
+  :global {
+    .ant-select {
+      margin-right: 20px;
+    }
+  }
+}

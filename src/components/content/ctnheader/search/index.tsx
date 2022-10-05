@@ -3,7 +3,7 @@
  * @Date: 2022-08-12 18:20:57
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-04 14:02:57
+ * @LastEditTime: 2022-10-05 21:08:21
  * @FilePath: \cloudm\src\components\content\ctnheader\search\index.tsx
  */
 import { Select } from 'antd'
@@ -55,7 +55,6 @@ const SearchInput: React.FC<{ placeholder: string, style?: React.CSSProperties }
     <>
       <Select
         showSearch
-        allowClear
         value={searchValue}
         style={{ width: 300 }}
         placeholder={props.placeholder}

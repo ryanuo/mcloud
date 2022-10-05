@@ -3,7 +3,7 @@
  * @Date: 2022-10-03 10:46:26
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-04 11:34:52
+ * @LastEditTime: 2022-10-05 13:34:06
  * @FilePath: \cloudm\src\constants\common.ts
  */
 
@@ -25,7 +25,8 @@ export enum apiUrl {
   LOGIN_PIC_URL = '/login/qr/create',
   LOGIN_CHECK_MA_URL = '/login/qr/check',
   RECOMMEND_URL_TODAY = '/recommend/resource', // 获取每日推荐歌单
-  Search_URL = '/search' // 搜索
+  Search_URL = '/search', // 搜索
+  USERINFO_URL = '/user/detail'
 }
 
 /**
@@ -38,4 +39,11 @@ export const statusMessageText = {
 export enum timeNumberEnum {
   timerCount = 60,
   timeout = 5000
+}
+
+// 编辑或者新增
+export enum modeType {
+  Detail = 'detail',
+  Add = 'add',
+  Edit = 'edit'
 }

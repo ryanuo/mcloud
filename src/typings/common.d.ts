@@ -3,7 +3,7 @@
  * @Date: 2022-10-02 10:15:46
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-04 14:16:08
+ * @LastEditTime: 2022-10-05 19:25:52
  * @FilePath: \cloudm\src\typings\common.d.ts
  */
 
@@ -40,6 +40,34 @@ export interface searchParamsType {
   keywords?: string
   type?: number
   limit?: number
+}
+
+interface userInfoType {
+  level?: number
+  listenSongs?: number
+  userId?: number
+  avatarUrl?: string
+  gender?: number
+  createTime?: number
+  nickname?: string
+  birthday?: number
+  signature?: string
+  followeds?: number
+  follows?: number
+  createDays?: number
+  backgroundUrl?: string
+  province?: number
+  city?: number
+  defaultAvatar?: boolean
+  description?: string
+  playlistCount?: number
+}
+
+export interface userInfoResponse {
+  code?: number
+  level?: number
+  listenSongs?: number
+  profile?: userInfoType
 }
 
 export interface searchResponse {
