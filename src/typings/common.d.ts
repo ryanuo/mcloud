@@ -3,13 +3,15 @@
  * @Date: 2022-10-02 10:15:46
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-05 19:25:52
+ * @LastEditTime: 2022-10-06 17:59:40
  * @FilePath: \cloudm\src\typings\common.d.ts
  */
 
 /**
  * 菜单类型
  */
+import type { FormInstance } from 'rc-field-form'
+
 export interface menuChildrenType {
   idx?: string
   isactived?: boolean
@@ -78,3 +80,5 @@ export interface searchResponse {
     songs: []
   }
 }
+
+type UserInfoForm = FormInstance

@@ -3,7 +3,7 @@
  * @Date: 2022-10-03 10:46:26
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-05 13:34:06
+ * @LastEditTime: 2022-10-06 13:38:57
  * @FilePath: \cloudm\src\constants\common.ts
  */
 
@@ -26,7 +26,8 @@ export enum apiUrl {
   LOGIN_CHECK_MA_URL = '/login/qr/check',
   RECOMMEND_URL_TODAY = '/recommend/resource', // 获取每日推荐歌单
   Search_URL = '/search', // 搜索
-  USERINFO_URL = '/user/detail'
+  USERINFO_URL = '/user/detail',
+  USERINFO_UPDATE_URL = '/user/update'
 }
 
 /**
