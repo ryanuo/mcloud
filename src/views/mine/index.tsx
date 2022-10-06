@@ -3,17 +3,18 @@
  * @Date: 2022-10-04 14:16:53
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-05 21:13:07
+ * @LastEditTime: 2022-10-06 18:22:18
  * @FilePath: \cloudm\src\views\mine\index.tsx
  */
-// import cloneDeep from 'lodash/cloneDeep'
+import { message } from 'antd'
+import cloneDeep from 'lodash/cloneDeep'
 import React, { useContext, useEffect, useState } from 'react'
 
 import NotLogin from '@/components/notlogin'
 import { modeType } from '@/constants'
-import { UserInfoAccess } from '@/service/api'
+import { UpdateUserInfo, UserInfoAccess } from '@/service/api'
 import globalContent from '@/store/global-content'
-import { userInfoResponse } from '@/typings/'
+import { userInfoResponse, userInfoType } from '@/typings/'
 
 import FormUser from './components/FormUser'
 
@@ -22,21 +23,21 @@ export const userInfoInit: userInfoResponse = {
   level: 0,
   listenSongs: 0,
   profile: {
-    birthday: 1664939424099,
+    birthday: 0,
     gender: 1,
-    nickname: '夏天在努力',
-    avatarUrl: 'http://p1.music.126.net/I5GXJbPRG2ZlVTbJIKwSWg==/109951166600068473.jpg',
-    province: 140000,
+    nickname: '',
+    avatarUrl: '',
+    province: 0,
     city: 140100,
     defaultAvatar: false,
-    backgroundUrl: 'http://p1.music.126.net/l1Ju2mVq68uMpIUqQZJWbA==/109951165370245575.jpg',
-    createTime: 1543479007737,
+    backgroundUrl: '',
+    createTime: 0,
     description: '',
-    userId: 1686269255,
-    signature: '喜欢唱歌的男孩\n公众号：今日在学',
-    followeds: 3,
-    follows: 10,
-    playlistCount: 2
+    userId: 0,
+    signature: '',
+    followeds: 0,
+    follows: 0,
+    playlistCount: 0
   }
 }
 
@@ -52,31 +53,23 @@ function MainStage() {
     const { userId } = profile
 
     const res = await UserInfoAccess({ uid: userId }) as userInfoResponse
-    // const res: userInfoResponse = {
-    //   level: 9,
-    //   listenSongs: 16528,
-    //   profile: {
-    //     birthday: 1664939424099,
-    //     gender: 1,
-    //     nickname: '夏天在努力',
-    //     avatarUrl: 'http://p1.music.126.net/I5GXJbPRG2ZlVTbJIKwSWg==/109951166600068473.jpg',
-    //     province: 140000,
-    //     city: 140100,
-    //     defaultAvatar: false,
-    //     backgroundUrl: 'http://p1.music.126.net/l1Ju2mVq68uMpIUqQZJWbA==/109951165370245575.jpg',
-    //     createTime: 1543479007737,
-    //     description: '',
-    //     userId: 1686269255,
-    //     signature: '喜欢唱歌的男孩\n公众号：今日在学',
-    //     followeds: 3,
-    //     follows: 10,
-    //     playlistCount: 2
-    //   },
-    //   code: 200
-    // }
+
     res.profile.level = res.level
     res.profile.listenSongs = res.listenSongs
-    setUserInfo(res)
+    const newdata = cloneDeep(res)
+    setUserInfo(newdata)
+  }
+
+  // 更新用户信息
+  const onUpdateUser = async function(val: userInfoType, callback: () => void) {
+    const res = await UpdateUserInfo(val) as unknown as { code: number }
+    if (res.code === 200) {
+      message.success('更新成功')
+    } else {
+      message.error('更新失败')
+    }
+    callback()
+    setMode(modeType.Detail)
   }
 
   // 请求用户数据
@@ -84,15 +77,15 @@ function MainStage() {
     if (isLogined) {
       getUserInfo()
     }
-  }, [isLogined])
+  }, [isLogined, mode])
 
   return (
     <>
-      {isLogined ? <FormUser type={mode} data={userInfo.profile} /> : <NotLogin />}
+      {isLogined ? <FormUser onUpdate={onUpdateUser} onCancel={() => setMode(modeType.Detail)} type={mode} data={userInfo.profile} /> : <NotLogin />}
       {
         mode === modeType.Detail
           ? <span onClick={() => setMode(modeType.Edit)}>编辑</span>
-          : <span onClick={() => setMode(modeType.Detail)}>取消</span>
+          : null
       }
     </>
   )

@@ -3,7 +3,7 @@
  * @Date: 2022-08-07 18:30:29
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-05 12:45:24
+ * @LastEditTime: 2022-10-06 17:15:29
  * @FilePath: \cloudm\src\service\api.ts
  */
 import { AxiosResponse } from 'axios'
@@ -44,6 +44,15 @@ export const searchAccess = function(params: searchParamsType): Promise<AxiosRes
 export const UserInfoAccess = function(params: { uid: number }): Promise<AxiosResponse<userInfoType, any>> {
   return http({
     url: apiUrl.USERINFO_URL,
+    method: 'get',
+    params
+  })
+}
+
+// 更新用户信息
+export const UpdateUserInfo = function(params: userInfoType) {
+  return http({
+    url: apiUrl.USERINFO_UPDATE_URL,
     method: 'get',
     params
   })

@@ -3,18 +3,16 @@
  * @Date: 2022-10-05 14:05:57
  * @LastEditors: harry
  * @Github: https://github.com/rr210
- * @LastEditTime: 2022-10-05 21:06:42
+ * @LastEditTime: 2022-10-06 18:12:31
  * @FilePath: \cloudm\src\views\mine\components\EditUser.tsx
  */
 import { Button, Form, Input, Radio, RadioChangeEvent, Select } from 'antd'
-// import cloneDeep from 'lodash/cloneDeep'
 import moment from 'moment'
-import React, { memo, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import CustomDatePicker from '@/components/common/CustomDatePicker'
 import { userInfoType } from '@/typings/'
 import { cityData } from '@/utils/cities'
-// import { cityData } from '@/utils/cities'
 import { provinces } from '@/utils/province'
 
 import styles from '../style.module.scss'
@@ -23,8 +21,15 @@ const { TextArea } = Input
 
 const { Option } = Select
 
-function EditUser(props: { data: userInfoType }) {
-  const { data } = props
+interface EditUserProps {
+  data: userInfoType
+  onUpdate: (val: userInfoType, callback: () => void) => void
+  onCancel: () => void
+}
+
+function EditUser(props: EditUserProps) {
+  const { data, onUpdate, onCancel } = props
+
   const { gender, nickname, signature, birthday, province, city } = data
 
   const [form] = Form.useForm()
@@ -33,10 +38,7 @@ function EditUser(props: { data: userInfoType }) {
   const [birthdayVal, setBirthdayVal] = useState(moment(birthday))
   const [provinceDefault, setProvinceDefault] = useState(province.toString())
   const [cityDefault, setCityDefault] = useState(city.toString())
-
-  const onFinish = function(val: any) {
-    console.log(val)
-  }
+  const [isLoading, setIsLoading] = useState(false)
 
   const onRadioChange = function(e: RadioChangeEvent) {
     const { value } = e.target
@@ -78,7 +80,10 @@ function EditUser(props: { data: userInfoType }) {
             gender,
             birthday
           }}
-          onFinish={onFinish}
+          onFinish={(e) => onUpdate(e, () => {
+            form.resetFields()
+            setIsLoading(true)
+          })}
         >
           <Form.Item label='昵称' name='nickname'>
             <Input />
@@ -115,10 +120,10 @@ function EditUser(props: { data: userInfoType }) {
             </div>
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 2, span: 16 }}>
-            <Button className={styles.btn} type="primary" htmlType="submit">
+            <Button onClick={() => setIsLoading(true)} loading={isLoading} className={styles.btn} type="primary" htmlType="submit">
               保存
             </Button>
-            <Button>
+            <Button onClick={onCancel}>
               取消
             </Button>
           </Form.Item>
@@ -132,4 +137,4 @@ function EditUser(props: { data: userInfoType }) {
   )
 }
 
-export default memo(EditUser)
+export default EditUser
