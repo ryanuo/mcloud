@@ -71,7 +71,7 @@ export const UserInfoAccess = function(params: { uid: number }) {
 
 // 更新用户信息
 export const UpdateUserInfo = function(params: userInfoType) {
-  return http({
+  return http<{ code: number }>({
     url: apiUrl.USERINFO_UPDATE_URL,
     method: 'get',
     params
