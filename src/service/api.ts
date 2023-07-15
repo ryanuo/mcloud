@@ -9,7 +9,7 @@
 import { AxiosResponse } from 'axios'
 
 import { apiUrl } from '@/constants'
-import { formType, searchParamsType, searchResponse, userInfoType } from '@/typings/'
+import { formType, QRKey, QRType, searchParamsType, searchResponse, userInfoType } from '@/typings/'
 
 import http from './http'
 
@@ -41,8 +41,8 @@ export const searchAccess = function(params: searchParamsType): Promise<AxiosRes
 }
 
 // 用户详情
-export const UserInfoAccess = function(params: { uid: number }): Promise<AxiosResponse<userInfoType, any>> {
-  return http({
+export const UserInfoAccess = function(params: { uid: number }) {
+  return http<userInfoType>({
     url: apiUrl.USERINFO_URL,
     method: 'get',
     params
@@ -53,6 +53,30 @@ export const UserInfoAccess = function(params: { uid: number }): Promise<AxiosRe
 export const UpdateUserInfo = function(params: userInfoType) {
   return http({
     url: apiUrl.USERINFO_UPDATE_URL,
+    method: 'get',
+    params
+  })
+}
+
+// 二维码Key
+export const getQrKey = function() {
+  return http<QRKey>({
+    url: apiUrl.LOGIN_MA_URL,
+    method: 'get'
+  })
+}
+
+export const createQrAPI = function(params: { key: string }) {
+  return http<QRType>({
+    url: apiUrl.LOGIN_QR_Creat_URL,
+    method: 'get',
+    params
+  })
+}
+
+export const checkQrLoginStatus = function(params: { key: string }) {
+  return http<{ code: number, message: string, cookie: string }>({
+    url: apiUrl.LOGIN_QR_Check_URL,
     method: 'get',
     params
   })

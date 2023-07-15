@@ -12,8 +12,9 @@ import { StylAnimateEnum } from '@/constants'
 import globalContent from '@/store/global-content'
 
 import { RootMark } from '../rootmark'
-import FormWrap from './from'
+// import FormWrap from './from'
 import classes from './index.module.scss'
+import QrLogin from './QrLogin'
 
 const Login = () => {
   const ctx = useContext(globalContent)
@@ -28,7 +29,8 @@ const Login = () => {
   return (
     <RootMark onClick={() => ctx.setIsShowLogin(false)} className={classes.rootmarklogin}>
       <div className={classes.login + stylAnimate} onClick={PreForm}>
-        <FormWrap onAnimate={setStylAnimate} />
+        <QrLogin onAnimate={setStylAnimate} />
+        {/* <FormWrap onAnimate={setStylAnimate} /> */}
       </div>
     </RootMark>
   )

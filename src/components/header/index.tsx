@@ -19,7 +19,7 @@ export const Header = function() {
 
   useEffect(() => {
     if (isLogined) {
-      setAuthorName(JSON.parse(localStorage.getItem('profile')).nickname)
+      setAuthorName(JSON.parse(localStorage.getItem('profile'))?.nickname)
     } else {
       setAuthorName('用户')
     }
