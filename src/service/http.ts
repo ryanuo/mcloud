@@ -57,4 +57,6 @@ instance.interceptors.response.use(
   }
 )
 
-export default instance
+const http = <T>(config): Promise<T> => instance(config) as Promise<T>
+
+export default http

@@ -12,7 +12,7 @@ module.exports = function(app) {
   app.use(
     '/api', // 代理路径
     createProxyMiddleware({
-      target: 'https://music.mr90.cf/', // 目标路径
+      target: 'https://music-api.mr90.top/', // 目标路径
       changeOrigin: true,
       pathRewrite: {
         '^/api': '' // 重写原路径

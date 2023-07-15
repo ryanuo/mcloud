@@ -7,10 +7,11 @@
  * @FilePath: \cloudm\src\typings\common.d.ts
  */
 
+import type { FormInstance } from 'antd'
+
 /**
  * 菜单类型
  */
-import type { FormInstance } from 'rc-field-form'
 
 export interface menuChildrenType {
   idx?: string
@@ -82,3 +83,19 @@ export interface searchResponse {
 }
 
 type UserInfoForm = FormInstance
+
+interface QRType {
+  code: number
+  data: {
+    qrurl: string
+    qrimg: string
+  }
+}
+
+interface QRKey {
+  code: number
+  data: {
+    code: number
+    unikey: string
+  }
+}

@@ -12,7 +12,7 @@
  */
 export enum differentEnvUrl {
   dev = '/api',
-  pro = 'https://music.mr90.cf/'
+  pro = 'https://music-api.mr90.top/'
 }
 
 /**
@@ -21,13 +21,15 @@ export enum differentEnvUrl {
 export enum apiUrl {
   LOGIN_URL = '/login/cellphone',
   LOGIN_MA_URL = '/login/qr/key',
+  LOGIN_QR_Creat_URL = '/login/qr/create',
+  LOGIN_QR_Check_URL = '/login/qr/check',
   LOGIN_CAPTCHA_URL = '/captcha/sent',
   LOGIN_PIC_URL = '/login/qr/create',
   LOGIN_CHECK_MA_URL = '/login/qr/check',
   RECOMMEND_URL_TODAY = '/recommend/resource', // 获取每日推荐歌单
   Search_URL = '/search', // 搜索
   USERINFO_URL = '/user/detail',
-  USERINFO_UPDATE_URL = '/user/update'
+  USERINFO_UPDATE_URL = '/user/update',
 }
 
 /**

@@ -56,11 +56,11 @@ const menu = function(fn, navigate) {
 const OtherHd = () => {
   const ctx = useContext(globalContent)
   const navigate = useNavigate()
-  const [authorPic, setAuthorPic] = useState<string>('')
+  const [authorPic] = useState<string>('')
 
   useEffect(() => {
-    if (localStorage.getItem('token') && localStorage.getItem('cookie')) {
-      setAuthorPic(JSON.parse(localStorage.getItem('profile')).avatarUrl)
+    if (localStorage.getItem('Cookie')) {
+      console.log(JSON.parse(localStorage.getItem('Cookie')))
       ctx.setIsLogined(true)
     } else {
       ctx.setIsLogined(false)
