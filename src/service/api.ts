@@ -22,6 +22,26 @@ export const LoginAccess = async function(params: formType) {
   })
 }
 
+export const Logout = async function() {
+  return await http({
+    url: apiUrl.Loyout,
+    method: 'get'
+  })
+}
+
+export const checkLoginStatus = async function() {
+  return await http<{
+    data: {
+      account: any
+      code: number
+      profile: any
+    }
+  }>({
+    url: apiUrl.LoginStatus,
+    method: 'get'
+  })
+}
+
 // 验证码接口
 export const captchaAccess = async function(params: formType) {
   return await http({

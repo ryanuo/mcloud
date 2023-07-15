@@ -14,6 +14,7 @@ import React, { memo, useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import SvgNologin from '@/assets/svg/SvgNologin'
+import { checkLoginStatus, Logout } from '@/service/api'
 import globalContent from '@/store/global-content'
 
 import classes from './index.module.scss'
@@ -26,6 +27,17 @@ const layout = (callback) => {
     content: '是否退出登录？',
     onOk() {
       localStorage.clear()
+      // 清除所有cookie函数
+      const cookies = document.cookie.split(';')
+      Logout()
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i]
+        const eqPos = cookie.indexOf('=')
+        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie
+        document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/'
+        document.cookie = 'cookieName=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/path; domain=localhost'
+      }
+
       callback()
     },
     onCancel() {
@@ -56,16 +68,26 @@ const menu = function(fn, navigate) {
 const OtherHd = () => {
   const ctx = useContext(globalContent)
   const navigate = useNavigate()
-  const [authorPic] = useState<string>('')
+  const [authorPic, setAuthorPic] = useState<string>('')
 
-  useEffect(() => {
-    if (localStorage.getItem('Cookie')) {
-      console.log(JSON.parse(localStorage.getItem('Cookie')))
+  const getUserMessage = async function() {
+    const res = await checkLoginStatus()
+
+    if (res.data.code === 200 && res.data.profile && !document.cookie.split(';')?.[0]) {
+      if (!localStorage.getItem('profile')) {
+        localStorage.setItem('profile', JSON.stringify(res.data.profile))
+      }
+
       ctx.setIsLogined(true)
+      setAuthorPic(res.data.profile?.avatarUrl)
     } else {
       ctx.setIsLogined(false)
     }
-  }, [ctx.isLogined])
+  }
+
+  useEffect(() => {
+    getUserMessage()
+  }, [ctx.isLogined, ctx.isShowLogin])
 
   return (
     <div className={classes.OtherHd}>
