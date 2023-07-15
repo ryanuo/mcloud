@@ -62,7 +62,7 @@ function MainStage() {
 
   // 更新用户信息
   const onUpdateUser = async function(val: userInfoType, callback: () => void) {
-    const res = await UpdateUserInfo(val) as unknown as { code: number }
+    const res = await UpdateUserInfo(val)
     if (res.code === 200) {
       message.success('更新成功')
     } else {

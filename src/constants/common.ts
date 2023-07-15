@@ -30,6 +30,8 @@ export enum apiUrl {
   Search_URL = '/search', // 搜索
   USERINFO_URL = '/user/detail',
   USERINFO_UPDATE_URL = '/user/update',
+  LoginStatus = '/login/status',
+  Loyout = '/logout',
 }
 
 /**

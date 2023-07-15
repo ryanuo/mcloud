@@ -1,9 +1,10 @@
 import { useRequest } from 'ahooks'
 import QRCode from 'qrcode.react'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import { StylAnimateEnum } from '@/constants'
 import { checkQrLoginStatus, createQrAPI, getQrKey } from '@/service/api'
+import globalContent from '@/store/global-content'
 import { QRType } from '@/typings/'
 
 interface IQrLogin {
@@ -25,19 +26,25 @@ const QrMessage = {
 }
 
 const QrLogin = (props: IQrLogin) => {
-  // const { onAnimate } = props
+  const { onAnimate } = props
+  const ctx = useContext(globalContent)
+
   const [qrUrl, setQrUrl] = useState<string>()
   const [qrStatus, setQrStatus] = useState()
 
   const { data: qrData, run, cancel } = useRequest(checkQrLoginStatus, {
-    pollingInterval: 1000
+    pollingInterval: 200
   })
 
   useEffect(() => {
     if (qrData) {
       if (qrData?.code === QrStatus.LoginSuccess) {
         cancel()
+
         localStorage.setItem('Cookie', JSON.stringify(qrData.cookie))
+        ctx.isLogined = true
+        onAnimate(StylAnimateEnum.fadeOutDown)
+        ctx.setIsShowLogin(false)
       }
 
       setQrStatus(QrMessage[qrData?.code])

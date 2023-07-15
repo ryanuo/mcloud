@@ -43,7 +43,6 @@ const FormWrap = (props: { onAnimate: (e: StylAnimateEnum) => void }) => {
   const [form] = Form.useForm<formType>()
 
   const [switchChecked, setSwitchChecked] = useState<boolean>(false)
-
   const [loginLoading, setLoginLoading] = useState<boolean>(false)
 
   const nameValue = Form.useWatch('phone', form)

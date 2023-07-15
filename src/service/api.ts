@@ -22,6 +22,26 @@ export const LoginAccess = async function(params: formType) {
   })
 }
 
+export const Logout = async function() {
+  return await http({
+    url: apiUrl.Loyout,
+    method: 'get'
+  })
+}
+
+export const checkLoginStatus = async function() {
+  return await http<{
+    data: {
+      account: any
+      code: number
+      profile: any
+    }
+  }>({
+    url: apiUrl.LoginStatus,
+    method: 'get'
+  })
+}
+
 // 验证码接口
 export const captchaAccess = async function(params: formType) {
   return await http({
@@ -51,7 +71,7 @@ export const UserInfoAccess = function(params: { uid: number }) {
 
 // 更新用户信息
 export const UpdateUserInfo = function(params: userInfoType) {
-  return http({
+  return http<{ code: number }>({
     url: apiUrl.USERINFO_UPDATE_URL,
     method: 'get',
     params
